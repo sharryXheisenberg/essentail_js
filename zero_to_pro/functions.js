@@ -76,6 +76,13 @@ console.log(n);
 console.log("value of factorial",factorial(3));
 
 
+//setTimeout function()
+
+setTimeout(function(){
+    console.log("This msg will be print after 2 seconds!");
+},2000)
+
+
 // Nested functions
 
 // function outerNestedFunction(nr){
@@ -138,4 +145,54 @@ let anotherVar = function(){
     console.log("another function callback function");
 }
 doFlex(anotherVar);
+
+
+//exercise -
+let testFunction = function(){ 
+    console.log("Hello"); 
+}(); 
+
+let val = 10; 
+function tester(val){ 
+    val += 10; 
+    if(val < 100){ 
+        return tester(val); 
+    } 
+    return val; 
+} 
+tester(val); 
+console.log(val);
+
+//  Use the arrow format to create functions that output the values 
+// one and
+//  two to the console. Create a third function that outputs the value 
+// the console, and then invokes the first two functions.
+//  Create a fourth function that outputs the word 
+// three to
+//  four to the console and also
+//  use 
+// setTimeout() to invoke the first function immediately and then the
+//  third function.
+//  What does your output look like in the console? Try to get the console to
+//  output:
+
+const one = ()=> console.log("one");
+const two = ()=> console.log("two");
+const three =()=>{
+    console.log("three");
+    one();
+    two();
+};
+const fourth = ()=>{
+    console.log("Four");
+    setTimeout(one,0);
+    three();
+}
+fourth();
+
+var addFive1 = function addFive1(num) { 
+return num + 2; 
+}; 
+let addFive2 = (num) => num + 2; 
+console.log(addFive1(14)); 
 
