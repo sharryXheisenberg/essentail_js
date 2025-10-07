@@ -190,7 +190,7 @@ promise.then(
 //  then() is a Promise itself, so when it returns we can use the result for the next then() instance. This means we can chain the then() instances,
 
 const prom = new Promise((resolve,reject)=>{
-    resolve("Success");
+    // resolve("Success");
     reject("Opps...");
 })
 .then(value=>{
@@ -228,3 +228,25 @@ function fetchData(){
         })
     })
 }
+
+// exercise
+const pro = new Promise((resolve,reject)=>{
+    resolve("Start Counting");
+    function counter(val){
+        console.log(val);
+    }
+    reject("Please provide the count ")
+}).then(val=>{
+    console.log(val);
+    return "one";
+}).then(val=>{
+    console.log(val);
+    return "two";
+}).then(val=>{
+    console.log(val);
+    return "Three";
+}).then(val=>{
+    console.log(val);
+}).catch(val=>{
+    console.log(val);
+})
