@@ -216,18 +216,7 @@ const prom = new Promise((resolve,reject)=>{
     console.log(value);
 })
 
-function fetchData(){
-    return new Promise((resolve ,reject)=>{
-        setTimeout(()=>{
-            const success = true;
-            if(success){
-                resolve("Data fetched successfully!");
-            }else{
-                re
-            }
-        })
-    })
-}
+
 
 // exercise
 const pro = new Promise((resolve,reject)=>{
@@ -250,3 +239,65 @@ const pro = new Promise((resolve,reject)=>{
 }).catch(val=>{
     console.log(val);
 })
+
+
+//  We have just seen the Promise syntax. With the  async keyword, we can make a function return a Promise. 
+//  we can use the more powerful  await keyword to wait until the Promise is done. works in an asynchronous function.
+//  await only
+
+
+
+function someThing(x){
+    return new Promise((resolve , reject)=>{
+        if(typeof x !=="number"){
+            reject("Promise is rejected");
+        }else{
+             setTimeout(()=>{
+                resolve("Something here gonna be print-> " + x);   
+            },1000);
+        };
+
+    });
+};
+
+
+async function ok(x){
+    try{
+        const words = await someThing(x);
+        console.log(words);
+    }catch(err){
+        console.log(err);
+    }
+};
+
+ok(4);
+ok("b");  // excluding this function all function are executed 
+ok(22);
+
+function nothing(x){
+    return new Promise((resolve,reject)=>{
+        if(typeof x!== "number"){
+                reject("nothing is happening here!")
+        }else{
+             setTimeout(()=>{
+            resolve("Promise is resolve!"+x);
+             },1000);
+        };
+    });
+};
+
+
+async function op(x){
+    try{
+        const words = await nothing(x);
+        console.log(words);
+    }catch(err){
+        console.log(err);
+    }
+}
+op(1);
+op(2);
+op(3)
+
+let nep = new Promise(()=>{});
+console.log(nep);
